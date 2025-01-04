@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
+use App\Http\Resources\EventResource;
+
 
 class EventController extends Controller
 {
@@ -12,13 +14,14 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events=Event::all();
-        return $events;
+        return EventResource::collection(Event::all());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    public function webIndex()
+    {
+        $events = Event::all();
+        return view('home', ['events' => $events]);
+    }
     public function create()
     {
         //
