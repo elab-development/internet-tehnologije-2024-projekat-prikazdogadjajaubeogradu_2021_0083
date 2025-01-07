@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Traits\CanLoadRelationships;
 use App\Models\Event;
+//use Illuminate\Container\Attributes\Auth;
+use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
 {
@@ -15,9 +17,22 @@ class ReservationController extends Controller
      * Display a listing of the resource.
      **/
 
-    public function index()
+    public function index(Request $request)
     {
-        
+        if($request->user()->user_type!=='admin')
+        {
+            $reservations = Reservation::with('event')
+            ->where('id_user', Auth::id())
+            ->get();
+        }
+        else
+        {
+            $reservations=Reservation::with('event')->get();
+        }
+
+
+        return response()->json($reservations);
+
     }
     /**
      * Show the form for creating a new resource.
@@ -69,9 +84,27 @@ class ReservationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Reservation $reservation)
+    public function destroy($user_id,$event_id,Request $request)
     {
-        //
+        $reservation = Reservation::where('id_user', $user_id)
+        ->where('id_event', $event_id)
+        ->first();
+
+        if (!$reservation) 
+        {
+            return response()->json(['message' => 'Reservation not found.'], 404);
+        }
+
+
+        if ($reservation->id_user !== $request->user()->id && $request->user()->user_type!=='admin') 
+        {
+            return response()->json(['message' => 'You are not authorized to delete this reservation.'], 403);
+        }
+    
+        Reservation::where('id_user', $user_id)
+        ->where('id_event', $event_id)
+        ->delete();
+        return response()->json(['message' => 'Reservation deleted successfully.']);
 
     }
 }

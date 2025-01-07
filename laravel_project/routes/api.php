@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,11 +27,22 @@ Route::post('/login',[AuthController::class,'login']);
 
 Route::middleware(['auth:sanctum'])->group(function () {
     
-    Route::post('/events/{event}/reservations', [ReservationController::class, 'store'])->name('reservations.store');
-    Route::delete('/reservations/{reservation}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
+    Route::post('/events/{event}/reservations', [ReservationController::class, 'store']);
+    Route::delete('/reservations/{user_id}/{event_id}', [ReservationController::class, 'destroy']);
+    Route::get('/reservations', [ReservationController::class, 'index']);
 
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::post('/logout', [AuthController::class, 'logout']);
 });
+
+Route::middleware(['auth:sanctum',  \App\Http\Middleware\AdminMiddleware::class])->group(function () {
+    Route::resource('users', UserController::class);
+
+    Route::get('/users/{id}', [UserController::class, 'show']);
+    Route::post('/users', [UserController::class, 'store']);
+    Route::delete('/users/{id}', [UserController::class, 'destroy']);
+
+});
+
 
 Route::resource('events',EventController::class);
 Route::get('/events/{id}',[EventController::class,'show']);
