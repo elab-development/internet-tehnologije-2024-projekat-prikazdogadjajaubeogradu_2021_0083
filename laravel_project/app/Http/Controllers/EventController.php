@@ -17,6 +17,19 @@ class EventController extends Controller
         return EventResource::collection(Event::all());
     }
 
+    public function filterAndPaginate(Request $request){
+        $query = Event::query();
+        if ($request->has('title')) {
+            $query->where('title', 'LIKE', '%' . $request->title . '%');
+        }
+        if ($request->has('location')) {
+            $query->where('location', 'LIKE', '%' . $request->location . '%');
+        }
+ 
+        $data = $query->paginate(10);
+        return response()->json($data);
+    }
+
     public function webIndex()
     {
         $events = Event::all();
