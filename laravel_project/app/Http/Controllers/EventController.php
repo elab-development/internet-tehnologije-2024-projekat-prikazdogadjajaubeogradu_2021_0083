@@ -8,7 +8,7 @@ use Barryvdh\DomPDF\PDF;
 use Barryvdh\DomPDF\Facade;
 use Illuminate\Http\Request;
 use App\Http\Resources\EventResource;
-
+use Illuminate\Support\Facades\Cache;
 
 class EventController extends Controller
 {
@@ -17,7 +17,11 @@ class EventController extends Controller
      */
     public function index()
     {
-        return EventResource::collection(Event::all());
+        $events=Cache::remember('all_events',60,function(){
+            return Event::all();
+        });
+
+        return EventResource::collection($events);
     }
 
     public function filterAndPaginate(Request $request){
