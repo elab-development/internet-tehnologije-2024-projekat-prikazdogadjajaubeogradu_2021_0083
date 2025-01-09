@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
+use Barryvdh\DomPDF\PDF;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+//use Illuminate\Container\Attributes\Auth;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Traits\CanLoadRelationships;
-use App\Models\Event;
-//use Illuminate\Container\Attributes\Auth;
-use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
 {
@@ -106,5 +107,15 @@ class ReservationController extends Controller
         ->delete();
         return response()->json(['message' => 'Reservation deleted successfully.']);
 
+    }
+
+    public function exportUserReservations(){
+        $user = auth()->user();
+        $reservations = $user->reservations;
+        
+        $pdf = app(PDF::class); 
+        $pdfContent = $pdf->loadView('reservations', compact('user','reservations'));
+
+        return $pdfContent->download('events.pdf');
     }
 }

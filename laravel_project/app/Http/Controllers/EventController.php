@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+//use Barryvdh\DomPDF\PDF;
+use Barryvdh\DomPDF\PDF;
+use Barryvdh\DomPDF\Facade;
 use Illuminate\Http\Request;
 use App\Http\Resources\EventResource;
 
@@ -84,4 +87,5 @@ class EventController extends Controller
     {
         //
     }
+
 }

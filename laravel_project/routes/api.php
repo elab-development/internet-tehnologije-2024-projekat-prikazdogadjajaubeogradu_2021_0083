@@ -30,7 +30,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/events/{event}/reservations', [ReservationController::class, 'store']);
     Route::delete('/reservations/{user_id}/{event_id}', [ReservationController::class, 'destroy']);
     Route::get('/reservations', [ReservationController::class, 'index']);
-
+    Route::get('/export',[ReservationController::class,'exportUserReservations']);
     Route::post('/logout', [AuthController::class, 'logout']);
 });
 
@@ -46,5 +46,6 @@ Route::middleware(['auth:sanctum',  \App\Http\Middleware\AdminMiddleware::class]
 
 Route::resource('events',EventController::class);
 Route::get('/events/{id}',[EventController::class,'show']);
-
 Route::get('/filter',[EventController::class,'filterAndPaginate']);
+
+

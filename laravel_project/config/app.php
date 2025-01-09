@@ -1,5 +1,7 @@
 <?php
 
+use Barryvdh\DomPDF\Facade;
+
 return [
 
     /*
@@ -11,7 +13,7 @@ return [
     | framework needs to place the application's name in a notification or
     | other UI elements where an application name needs to be displayed.
     |
-    */
+    */  
 
     'name' => env('APP_NAME', 'Laravel'),
 
