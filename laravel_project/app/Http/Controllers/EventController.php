@@ -60,11 +60,17 @@ class EventController extends Controller
      */
     public function show($event_id)
     {
-        $event=Event::find($event_id);
-        if(is_null($event))
-        {
-            return response()->json('Data not found','404');
+        $cacheKey = "event_{$event_id}";
+
+        // Check if the event is already cached
+        $event = Cache::remember($cacheKey, 60, function () use ($event_id) {
+            return Event::find($event_id);
+        });
+    
+        if (is_null($event)) {
+            return response()->json('Data not found', 404);
         }
+    
         return response()->json($event);
     }
 
