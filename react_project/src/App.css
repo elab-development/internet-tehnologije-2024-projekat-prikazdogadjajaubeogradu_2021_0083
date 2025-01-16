@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -28,16 +29,8 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-body {
+/*
+  body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   display: flex;
@@ -47,6 +40,8 @@ body {
   background: linear-gradient(135deg, #2a2a72, #009ffd);
   color: #fff;
 }
+*/
+
 
 .login-container {
   background: rgba(255, 255, 255, 0.1);
@@ -138,19 +133,9 @@ body {
   color: #ff7eb3;
 }
 
-/* General Styles */
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: linear-gradient(135deg, #2a2a72, #009ffd);
-  color: #fff;
-}
 
-/* Register Container */
+
+ 
 .register-container {
   background: rgba(255, 255, 255, 0.1);
   padding: 2rem;
@@ -168,7 +153,7 @@ body {
   color: #f9ca24;
 }
 
-/* Input Fields */
+ Input Fields 
 .input-group {
   position: relative;
   margin-bottom: 1.5rem;
@@ -209,7 +194,6 @@ body {
   color: #f9ca24;
 }
 
-/* Register Button */
 .register-btn {
   width: 100%;
   padding: 0.75rem 1rem;
@@ -227,7 +211,6 @@ body {
   background: linear-gradient(90deg, #ff7eb3, #ff758c);
 }
 
-/* Footer Links */
 .login-link {
   margin-top: 1rem;
   font-size: 0.9rem;
