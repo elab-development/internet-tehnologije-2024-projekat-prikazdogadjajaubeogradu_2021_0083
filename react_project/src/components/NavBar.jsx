@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-function NavBar() {
+import { useNavigate,Outlet } from 'react-router-dom';
+function NavBar({token}) {
   let navigate = useNavigate();
 
   function handleLogout(e){
@@ -29,9 +29,10 @@ function NavBar() {
   }
 
   return (
+    <div>
     <nav className="navbar navbar-expand-xl navbar-light bg-light">
     <div className="container-fluid">
-      <a className="navbar-brand" href="#">BelEvents</a>
+      <a className="navbar-brand" href="/events">BelEvents</a>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarWithDropdown" aria-controls="navbarWithDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
@@ -41,19 +42,28 @@ function NavBar() {
             <a className="nav-link active" aria-current="page" href="/events">Events</a>
           </li>
           <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a className="nav-link dropdown-toggle" href="/account" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               MyAccount
             </a>
-            <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a className="dropdown-item" href="/login">Log in</a></li>
-              <li><a className="dropdown-item" href="/register">Register</a></li>
-              <li><a className="dropdown-item" href="#" onClick={handleLogout}>Log out</a></li>
-            </ul>
+            
+              {token == null ? 
+              (<ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a className="dropdown-item" href="/login">Log in</a></li>
+                 <li><a className="dropdown-item" href="/register">Register</a></li> 
+                  </ul> )
+                   : 
+                  (<ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a className="dropdown-item" href="/events" onClick={handleLogout}>Log out</a></li>    
+                  </ul>)
+                  }          
+           
           </li>
         </ul>
       </div>
     </div>
   </nav>
+  <Outlet />
+  </div>
   )
 }
 
