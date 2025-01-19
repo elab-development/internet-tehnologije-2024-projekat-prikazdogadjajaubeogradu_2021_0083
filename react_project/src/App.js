@@ -18,7 +18,7 @@ function App() {
       <Route path="/login" element={<LoginPage addToken={addToken}/>} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/" element={<NavBar token={token}/>}>
-        <Route path="events" element={<EventsPage />} />
+        <Route path="events" element={<EventsPage token={token} />} />
       </Route>
       </Routes>
     </div>

@@ -3,7 +3,7 @@ import Event from '../components/Event';
 import axios from 'axios';
 import { useState, useEffect } from "react";
 
-function EventsPage() {
+function EventsPage({token}) {
   const [events, setEvents] = useState([]);
   useEffect(() => {
     axios.get("http://127.0.0.1:8000/api/events")
@@ -20,7 +20,7 @@ function EventsPage() {
     
     {events == null ? (<></>) : (
         events.map((event) => (
-          <Event key={event.id} event={event} /> // Spread event data as props
+          <Event key={event.id} event={event} token={token}/> // Spread event data as props
         ))
       )
     }

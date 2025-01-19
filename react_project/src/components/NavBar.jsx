@@ -53,7 +53,8 @@ function NavBar({token}) {
                   </ul> )
                    : 
                   (<ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a className="dropdown-item" href="/events" onClick={handleLogout}>Log out</a></li>    
+                  <li><a className="dropdown-item" href="/events">My reservations</a></li>
+                  <li><a className="dropdown-item" href="/events" onClick={handleLogout}>Log out</a></li> 
                   </ul>)
                   }          
            
