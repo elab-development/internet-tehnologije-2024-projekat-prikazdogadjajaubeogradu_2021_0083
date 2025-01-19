@@ -46,7 +46,7 @@ function NavBar({token}) {
               MyAccount
             </a>
             
-              {token == null ? 
+              {window.sessionStorage.getItem("auth_token") == null ? 
               (<ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <li><a className="dropdown-item" href="/login">Log in</a></li>
                  <li><a className="dropdown-item" href="/register">Register</a></li> 

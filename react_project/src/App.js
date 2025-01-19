@@ -5,6 +5,7 @@ import { BrowserRouter , Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import { useState } from "react";
 import EventsPage from './components/EventsPage';
+import MyReservations from './components/MyReservations';
 function App() {
   const [token,setToken]=useState();
   function addToken(auth_token){
@@ -19,6 +20,7 @@ function App() {
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/" element={<NavBar token={token}/>}>
         <Route path="events" element={<EventsPage token={token} />} />
+        <Route path="reservations" element={<MyReservations token={token} />} />
       </Route>
       </Routes>
     </div>
