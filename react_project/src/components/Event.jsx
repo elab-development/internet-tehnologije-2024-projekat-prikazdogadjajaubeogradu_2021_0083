@@ -5,6 +5,7 @@ function Event({event,token}) {
     let navigate = useNavigate();
   
   const handleReservation = async () => {
+    
     let config = {
       method: 'post',
       maxBodyLength: Infinity,
@@ -28,11 +29,14 @@ function Event({event,token}) {
   return (
     <div className="card">
 
-  <div className="card-body">
+  <div className="card-body" >
+
     <h5 className="card-title">{event.title}</h5>
     <p className="card-text">{event.location}</p>
     <p className="card-text">{event.date}</p>
+    
     <a href="#" className="btn btn-primary" onClick={handleReservation}>Rezervisi</a>
+
   </div>
 </div>
   )

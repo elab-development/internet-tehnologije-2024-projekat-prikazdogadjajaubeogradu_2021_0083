@@ -19,7 +19,7 @@ class EventResource extends JsonResource
             'id'=>$this->resource->id,
             'title'=>$this->resource->title,
             'location'=>$this->resource->location,
-
+            'date'=>$this->resource->date,
 
         ];
     }

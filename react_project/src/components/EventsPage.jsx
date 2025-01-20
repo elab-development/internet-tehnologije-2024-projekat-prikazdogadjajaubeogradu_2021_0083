@@ -9,7 +9,6 @@ function EventsPage({token}) {
     axios.get("http://127.0.0.1:8000/api/events")
       .then((res) => {
         setEvents(res.data.data);
-        
       })
       .catch((error) => {
         console.error("Error fetching events:", error);
@@ -17,10 +16,10 @@ function EventsPage({token}) {
   }, []);
   return (
     <div><h3>ALL EVENTS</h3>
-    
+      
     {events == null ? (<></>) : (
         events.map((event) => (
-          <Event key={event.id} event={event} token={token}/> // Spread event data as props
+          <Event key={event.id} event={event} token={token}/> 
         ))
       )
     }
