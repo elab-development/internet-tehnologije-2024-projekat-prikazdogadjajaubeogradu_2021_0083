@@ -45,6 +45,7 @@ Route::middleware(['auth:sanctum',  \App\Http\Middleware\AdminMiddleware::class]
 });
 
 
+
 Route::resource('events',EventController::class);
 Route::get('/events/{id}',[EventController::class,'show']);
 Route::get('/filter',[EventController::class,'filterAndPaginate']);

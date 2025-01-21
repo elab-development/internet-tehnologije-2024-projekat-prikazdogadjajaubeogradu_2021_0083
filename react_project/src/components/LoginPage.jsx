@@ -23,7 +23,8 @@ function LoginPage({addToken}) {
         console.log(res.data);
         if(res.data.success===true){
           window.sessionStorage.setItem('auth_token',res.data.access_token);
-          addToken(res.data.access_token);
+          window.sessionStorage.setItem('user_type',res.data.user_type);
+          
           navigate("/events");
         }
       }).catch((err)=>{
@@ -44,7 +45,7 @@ function LoginPage({addToken}) {
           </div>
           <button type="submit" className="login-btn">Log In</button>
           <p className="signup-link">
-            Don't have an account? <a href="#">Sign Up</a>
+            Nemate nalog? <a href="register">Registruj se</a>
           </p>
         </form>
       </div>

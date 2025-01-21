@@ -19,7 +19,7 @@ function Event({event,token}) {
     .then((response) => {
       navigate("/events");
       alert("Uspesno ste rezervisali.");
-      console.log(JSON.stringify(response.data));
+     // console.log(JSON.stringify(response.data));
     })
     .catch((error) => {
       console.log(error);

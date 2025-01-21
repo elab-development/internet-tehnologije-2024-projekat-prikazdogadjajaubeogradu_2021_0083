@@ -5,12 +5,12 @@ import { useState, useEffect } from "react";
 
 function EventsPage({token}) {
   const [events, setEvents] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1); // Current page number
-  const [totalPages, setTotalPages] = useState(1); // Total number of pages
+  const [currentPage, setCurrentPage] = useState(1); 
+  const [totalPages, setTotalPages] = useState(1); 
   const [filters, setFilters] = useState({ title: "", location: "" });
 
   useEffect(() => {
-    fetchEvents(currentPage); // Fetch events whenever the page changes
+    fetchEvents(currentPage); 
   }, [currentPage]);
 
   const fetchEvents = (/*page*/) => {
@@ -24,9 +24,9 @@ function EventsPage({token}) {
     axios
       .get(`http://127.0.0.1:8000/api/filter`,{params})
       .then((res) => {
-        console.log(res.data); // Debugging the response
-        setEvents(res.data.data); // Set the events for the current page
-        setTotalPages(res.data.last_page); // Update total number of pages
+       // console.log(res.data); 
+        setEvents(res.data.data); 
+        setTotalPages(res.data.last_page); 
       })
       .catch((error) => {
         console.error("Error fetching events:", error);
@@ -38,12 +38,12 @@ function EventsPage({token}) {
   };
 
   const handleSearch = () => {
-    setCurrentPage(1); // Reset to the first page on a new search
+    setCurrentPage(1); 
     fetchEvents();
   };
 
   const handlePageChange = (page) => {
-    setCurrentPage(page); // Update the current page
+    setCurrentPage(page); 
   };
 
 

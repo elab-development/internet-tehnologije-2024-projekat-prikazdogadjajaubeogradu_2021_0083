@@ -5,7 +5,7 @@ function NavBar({token}) {
   let navigate = useNavigate();
 
   function handleLogout(e){
-    
+    e.preventDefault();
     let config = {
       method: 'post',
       maxBodyLength: Infinity,
@@ -53,8 +53,10 @@ function NavBar({token}) {
                   </ul> )
                    : 
                   (<ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    {window.sessionStorage.getItem("user_type") == "admin" ? <li><a className="dropdown-item" href="/dashboard">Admin dashboard</a></li> : <></>}
                   <li><a className="dropdown-item" href="/reservations">My reservations</a></li>
-                  <li><a className="dropdown-item" href="/events" onClick={handleLogout}>Log out</a></li> 
+                  <li><a className="dropdown-item" href="/login" onClick={handleLogout}>Log out</a></li> 
+                  
                   </ul>)
                   }          
            

@@ -6,6 +6,7 @@ import NavBar from './components/NavBar';
 import { useState } from "react";
 import EventsPage from './components/EventsPage';
 import MyReservations from './components/MyReservations';
+import AdminDashboard  from './components/AdminDashboard';
 function App() {
   const [token,setToken]=useState();
   function addToken(auth_token){
@@ -21,6 +22,7 @@ function App() {
       <Route path="/" element={<NavBar token={token}/>}>
         <Route path="events" element={<EventsPage token={token} />} />
         <Route path="reservations" element={<MyReservations token={token} />} />
+        <Route path="dashboard"  element={<AdminDashboard/>}/>
       </Route>
       </Routes>
     </div>
