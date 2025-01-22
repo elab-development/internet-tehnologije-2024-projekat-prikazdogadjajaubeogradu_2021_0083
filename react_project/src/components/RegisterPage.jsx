@@ -2,6 +2,11 @@ import React from 'react'
 import axios from "axios";
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../App.css';
+import '../style/RegisterPage.css';
+import grb from '../images/grb.png';
+
+
 
 function RegisterPage() {
 const [userData, setUserData] = useState({
@@ -31,7 +36,56 @@ const [userData, setUserData] = useState({
 
 
   return (
-    <div className="register-container">
+      <div className="register-card">
+      <div className="register-left">
+        <h1>BelEvents</h1>
+          <img
+            src={grb} 
+            alt="Register Illustration"
+            className="register-image"
+          />
+        </div>
+        <div className="register-right">
+          <h2 className="register-title">Napravi nalog</h2>
+          <form className="register-form"  onSubmit={handleRegister}>
+            <div className="form-group">
+              <label htmlFor="name">Ime</label>
+              <input type="text" id="name" placeholder="Enter your name" required name="name" onInput={handleInput}/>
+            </div>
+            <div className="form-group">
+              <label htmlFor="email">Email adresa</label>
+              <input type="email" id="email" placeholder="Enter your email" name="email" onInput={handleInput}/>
+            </div>
+            <div className="form-group">
+              <label htmlFor="password">Šifra</label>
+              <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                name="password"
+                onInput={handleInput}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="confirmPassword">Potvrdi šifru</label>
+              <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm your password"
+                name="confirmPassword" 
+                onInput={handleInput}
+              />
+            </div>
+            <button type="submit" className="register-button">
+              Register
+            </button>
+          </form>
+          <p className="register-footer">
+            Već imate nalog? <a href="/login">Prijavite se</a>
+          </p>
+        </div>
+      </div>
+    /*<div className="register-container">
       <form className="register-form" onSubmit={handleRegister}>
       <h1>Register</h1>
       <div className="input-group">
@@ -55,7 +109,7 @@ const [userData, setUserData] = useState({
         Already have an account? <a href="#">Log In</a>
       </p>
       </form>
-    </div>
+    </div>*/
   )
 }
 

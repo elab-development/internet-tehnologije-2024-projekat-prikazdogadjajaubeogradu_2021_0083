@@ -143,6 +143,7 @@ function AdminDashboard() {
           <th scope="col">Email</th>
           <th scope="col">User Type</th>
           <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>

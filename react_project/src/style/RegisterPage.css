@@ -1,0 +1,103 @@
+
+
+.register-card {
+  display: flex;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  height: 80%;
+  width: 70%;
+}
+
+.register-left {
+  width: 50%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #b5b2b2;
+}
+
+.register-left img {
+  width: 80%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.register-right {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 400px; 
+}
+
+.register-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333333;
+  margin-top:1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.register-form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #cccccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.register-button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #264f98;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.register-button:hover {
+  background-color: #193769;
+}
+
+.register-footer {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.register-footer a {
+  color: #264f98;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.register-footer a:hover {
+  text-decoration: underline;
+}
+

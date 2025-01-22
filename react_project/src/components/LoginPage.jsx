@@ -3,6 +3,8 @@ import { useState } from 'react';
 import '../App.css';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import grb from '../images/grb.png';
+import '../style/LoginPage.css';
 function LoginPage({addToken}) {
     const [userData, setUserData] = useState({
       email:"",
@@ -32,22 +34,51 @@ function LoginPage({addToken}) {
       });
     }
     return (
-      <div className="login-container">
-        <form className="login-form" onSubmit={handleLogin}>
-          <h1>Log In</h1>
-          <div className="input-group">
-            <input type="email" id="email" required onInput={handleInput} name="email"/>
-            <label htmlFor="email">Email</label>
-          </div>
-          <div className="input-group">
-            <input type="password" id="password" required onInput={handleInput} name="password"/>
-            <label htmlFor="password">Password</label>
-          </div>
-          <button type="submit" className="login-btn">Log In</button>
-          <p className="signup-link">
-            Nemate nalog? <a href="register">Registruj se</a>
+      <div className="login-card">
+        <div className="login-image-wrapper">
+          <h1>BelEvents</h1>
+          <img src={grb} alt="Login" className="login-image" />
+        </div>
+        <div className="login-form-wrapper">
+          <form className="login-form" onSubmit={handleLogin}>
+            <h1 className="login-title">Dobrodošli</h1>
+            <p className="login-subtitle">Ulogujte se na Vaš nalog</p>
+
+            <div className="form-group">
+              <label htmlFor="email" className="form-label">
+                Email adresa
+              </label>
+              <input
+                type="email"
+                id="email"
+                className="form-input"
+                placeholder="Enter your email"
+                onInput={handleInput}
+                name="email"
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="password" className="form-label">
+                Šifra
+              </label>
+              <input
+                type="password"
+                id="password"
+                className="form-input"
+                placeholder="Enter your password"
+                onInput={handleInput} name="password"
+              />
+            </div>
+
+            <button type="submit" className="login-button">
+              Login
+            </button>
+          </form>
+          <p className="login-footer">
+            Nemate nalog? <a href="/register">Registrujte se</a>
           </p>
-        </form>
+        </div>
       </div>
   )
 }
