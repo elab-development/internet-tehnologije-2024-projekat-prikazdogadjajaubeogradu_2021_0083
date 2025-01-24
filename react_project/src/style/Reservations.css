@@ -1,0 +1,11 @@
+.reservations-wrapper{
+  margin:5rem 2rem 2rem 2rem;
+  padding:2.5rem;
+    border-radius: 2rem;
+  background-color: #eaf2f8;
+}
+
+.reservations-wrapper button{
+  margin-bottom: 1.5rem;
+}
+

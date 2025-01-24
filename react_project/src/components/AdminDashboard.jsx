@@ -1,6 +1,8 @@
 import React from 'react'
 import axios from 'axios';
 import { useState, useEffect } from "react";
+import '../style/Dashboard.css'
+
 function AdminDashboard() {
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -128,20 +130,20 @@ function AdminDashboard() {
     };
 
   return (
+  <div className="dashboard-wrapper">
   <div>
-  <div>
-    <h1>Admin Dashboard</h1>
+    <h1>Admin stranica</h1>
   </div>
   {isLoading ? ( 
-    <p>Loading users...</p> 
+    <p>Učitavanje korisnika</p> 
   ) : (
     <table className="table">
       <thead>
         <tr>
           <th scope="col">ID</th>
-          <th scope="col">Name</th>
-          <th scope="col">Email</th>
-          <th scope="col">User Type</th>
+          <th scope="col">Ime</th>
+          <th scope="col">Email adresa</th>
+          <th scope="col">Tip korisnika</th>
           <th></th>
           <th></th>
         </tr>
@@ -158,17 +160,17 @@ function AdminDashboard() {
               <td>
                 <button 
                   type="button" 
-                  className="btn btn-primary" 
+                  className="btn admin-delete" 
                   onClick={() => handleDelete(user)}>
-                  Delete User
+                  Obriši korisnika
                 </button>
               </td>
               <td>
                 <button 
                   type="button" 
-                  className="btn btn-primary" 
+                  className="btn admin-show" 
                   onClick={() => handleReservations(user.id)}>
-                  Reservations
+                  Rezervacije
                 </button>
               </td>
             </tr>
@@ -177,11 +179,11 @@ function AdminDashboard() {
     </table>
   )}
 
-    <h2>User Reservations</h2>
+    <h2>Rezervacije</h2>
       {isLoadingReservations ? (
-        <p>Loading reservations...</p>
+        <p>Rezervacije se učitavaju...</p>
       ) : filteredReservations.length === 0 ? (
-        <p>No reservations for the selected user.</p>
+        <p>Nema rezervacija za izabranog korisnika.</p>
       ) : (
         <div className="reservation-list">
           {filteredReservations.map((reservation, index) => (
@@ -195,8 +197,8 @@ function AdminDashboard() {
               }}
             >
               <h5>{reservation.event.title}</h5>
-              <p>Location: {reservation.event.location}</p>
-              <p>Date: {reservation.event.date}</p>
+              <p>Lokacija {reservation.event.location}</p>
+              <p>Datum: {reservation.event.date}</p>
               <button
                 onClick={() =>
                   handleDeleteReservation(
@@ -206,7 +208,7 @@ function AdminDashboard() {
                 }
                 className="btn btn-danger"
               >
-                DELETE
+                Obriši rezervaciju
               </button>
             </div>
           ))}

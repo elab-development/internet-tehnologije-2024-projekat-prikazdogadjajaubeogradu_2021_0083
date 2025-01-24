@@ -2,7 +2,7 @@ import React from 'react'
 import Event from '../components/Event';
 import axios from 'axios';
 import { useState, useEffect } from "react";
-
+import '../style/EventsPage.css';
 function EventsPage({token}) {
   const [events, setEvents] = useState([]);
   const [currentPage, setCurrentPage] = useState(1); 
@@ -48,58 +48,68 @@ function EventsPage({token}) {
 
 
   return (
-    <div>
-    <h3>ALL EVENTS</h3>
+    <div className="events">
+      <div className="header">
 
-      {/* Filter Section */}
+
       <div className="filter-section">
         <input
           type="text"
           name="title"
-          placeholder="Search by title"
+          className="form-control"
+          placeholder="Naziv"
           value={filters.title}
           onChange={handleFilterChange}
         />
         <input
           type="text"
+          className="form-control"
           name="location"
-          placeholder="Search by location"
+          placeholder="Lokacija"
           value={filters.location}
           onChange={handleFilterChange}
         />
-        <button onClick={handleSearch}>Search</button>
+        <button className="btn btn-light admin-show" onClick={handleSearch}>Pretraži</button>
       </div>
 
+      </div>
+    <div className="cards">
     {events.length === 0 ? (
       <p>No events available</p>
     ) : (
+      
       events.map((event) => (
         <Event key={event.id} event={event} token={token} />
+      
       ))
     )}
-
-    {/* Pagination Controls */}
+  </div>
     <div className="pagination">
       <button
         disabled={currentPage === 1}
         onClick={() => handlePageChange(currentPage - 1)}
+        className="btn btn-light"
       >
         &laquo; Previous
       </button>
-
+      <div className="pagionation-buttons">
       {Array.from({ length: totalPages }, (_, index) => (
         <button
           key={index + 1}
-          className={currentPage === index + 1 ? "active" : ""}
+          className={currentPage === index + 1 ? "active btn btn-light" : "btn btn-light"}
+          
           onClick={() => handlePageChange(index + 1)}
         >
           {index + 1}
         </button>
+        
       ))}
-
+      </div>
       <button
         disabled={currentPage === totalPages}
-        onClick={() => handlePageChange(currentPage + 1)}
+        onClick={() => handlePageChange(currentPage + 1)
+        }
+        className="btn btn-light"
       >
         Next &raquo;
       </button>

@@ -33,7 +33,7 @@ class EventController extends Controller
             $query->where('location', 'LIKE', '%' . $request->location . '%');
         }
  
-        $data = $query->paginate(10);
+        $data = $query->paginate(12);
         return response()->json($data);
     }
 

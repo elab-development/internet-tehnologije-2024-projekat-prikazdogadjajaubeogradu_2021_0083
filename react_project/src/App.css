@@ -4,7 +4,9 @@ body, html, #root {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #264f98;
+ /* background-color: #98c1d9;*/
+ background-color: #a9cce3;
+ 
   color: #333;
   height: 100%;
   width: 100%;

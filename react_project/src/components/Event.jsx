@@ -1,6 +1,8 @@
 import React from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import '../style/EventsPage.css';
+
 function Event({event,token}) {
     let navigate = useNavigate();
   
@@ -35,10 +37,10 @@ function Event({event,token}) {
     <p className="card-text">{event.location}</p>
     <p className="card-text">{event.date}</p>
     
-    <a href="#" className="btn btn-primary" onClick={handleReservation}>Rezervisi</a>
+    <a href="#" className="btn btn-primary event-btn" onClick={handleReservation}>Rezervisi</a>
 
   </div>
-</div>
+  </div>
   )
 }
 

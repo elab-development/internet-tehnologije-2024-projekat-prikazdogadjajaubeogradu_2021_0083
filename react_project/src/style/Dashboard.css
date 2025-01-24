@@ -1,0 +1,28 @@
+.dashboard-wrapper{
+  margin:5rem 2rem 2rem 2rem;
+  padding:2.5rem;
+    border-radius: 2rem;
+  background-color: #eaf2f8;
+}
+
+.dashboard-wrapper button{
+  margin-bottom: 1.5rem;
+}
+.admin-delete{
+background-color: rgb(168, 74, 74);
+}
+.admin-delete:active{
+  background-color: #a41b1b;
+}
+.admin-delete:focus{
+  background-color: #a41b1b;
+}
+.admin-show{
+    background-color: rgb(87, 104, 167);
+  }
+
+  .admin-show:hover, .admin-show:active, .admin-show:focus{
+    background-color: rgb(47, 64, 128);
+  }
+  
+  

@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { useNavigate,Outlet } from 'react-router-dom';
+import '../style/NavBar.css';
 function NavBar({token}) {
   let navigate = useNavigate();
 
@@ -29,8 +30,8 @@ function NavBar({token}) {
   }
 
   return (
-    <div>
-    <nav className="navbar navbar-expand-xl navbar-light bg-light">
+    <div className="page-wrapper">
+    <nav className="navbar navbar-expand-xl  ">
     <div className="container-fluid">
       <a className="navbar-brand" href="/events">BelEvents</a>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarWithDropdown" aria-controls="navbarWithDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,23 +40,23 @@ function NavBar({token}) {
       <div className="collapse navbar-collapse show" id="navbarWithDropdown">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="/events">Events</a>
+            <a className="nav-link active" aria-current="page" href="/events">Događaji</a>
           </li>
           <li className="nav-item dropdown">
             <a className="nav-link dropdown-toggle" href="/account" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              MyAccount
+              Moj nalog
             </a>
             
               {window.sessionStorage.getItem("auth_token") == null ? 
               (<ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a className="dropdown-item" href="/login">Log in</a></li>
-                 <li><a className="dropdown-item" href="/register">Register</a></li> 
+                <li><a className="dropdown-item" href="/login">Uloguj se</a></li>
+                 <li><a className="dropdown-item" href="/register">Registruj se</a></li> 
                   </ul> )
                    : 
                   (<ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    {window.sessionStorage.getItem("user_type") == "admin" ? <li><a className="dropdown-item" href="/dashboard">Admin dashboard</a></li> : <></>}
-                  <li><a className="dropdown-item" href="/reservations">My reservations</a></li>
-                  <li><a className="dropdown-item" href="/login" onClick={handleLogout}>Log out</a></li> 
+                    {window.sessionStorage.getItem("user_type") == "admin" ? <li><a className="dropdown-item" href="/dashboard">Admin stranica</a></li> : <></>}
+                  <li><a className="dropdown-item" href="/reservations">Moje rezervacije</a></li>
+                  <li><a className="dropdown-item" href="/login" onClick={handleLogout}>Odjavi se</a></li> 
                   
                   </ul>)
                   }          

@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { useState, useEffect } from "react";
+import '../style/Reservations.css'
 
 function MyReservations({token}) {
 
@@ -87,31 +88,36 @@ function MyReservations({token}) {
       };
   
     return (
-      <div>
-        <h2>My Reservations</h2>
-        <button onClick={handleDownload} className="btn btn-primary">
+      <div className="reservations-wrapper">
+        <button onClick={handleDownload} className="btn admin-show">
       Skini rezervacije u PDF-u
     </button>
-        <div className="reservation-list">
-          {isLoading  ?  ( <p>Rezervacije se ucitavaju</p> )
+    {isLoading  ?  ( <p>Rezervacije se ucitavaju</p> )
           : reservations.length === 0 ? (
             <p>Nemate rezervacija.</p> 
           ):(
-            reservations.map((reservation, index) => (
-              <div key={index} className="reservation-card" style={{ border: "1px solid black",margin: "2rem", padding:"2rem"}}>
-                <h5>{reservation.event.title}</h5>
-                <p>Location: {reservation.event.location}</p>
-                <p>Date: {reservation.event.date}</p>
-                <button
-                onClick={() => handleDelete(reservation.id_user, reservation.id_event)}
-                className="btn btn-danger">
-                DELETE
-              </button>
-              </div>
-            ))
+      <table className="table">
+  <thead>
+    <tr>
+      <th scope="col">Naziv dogadjaja</th>
+      <th scope="col">Datum</th>
+      <th scope="col">Lokacija</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  {reservations.map((reservation) => (
+        <tr key={reservation.event.id}>
+            <td>{reservation.event.title}</td>
+            <td>{reservation.event.date}</td>
+            <td>{reservation.event.location}</td>
+            <td><button type='button' className="btn admin-delete" onClick={handleDelete}>Obriši</button></td>
+        </tr>
+    ))}
+  </tbody>
+</table>
           )}
-        </div>
-      </div>
+</div>
     );
 }
 
