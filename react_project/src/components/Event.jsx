@@ -32,12 +32,25 @@ function Event({event,token}) {
     <div className="card">
 
   <div className="card-body" >
+    <div>
+    <h3 className="card-title">{event.title}</h3>
+    </div>
 
-    <h5 className="card-title">{event.title}</h5>
-    <p className="card-text">{event.location}</p>
+      <div className="flex">
+      <i class="fas fa-map-marker-alt"></i>
+      <p className="card-text">{event.location}</p>
+      </div>
+    <div className="flex">
+    <i class="fa-solid fa-calendar-days"></i>
     <p className="card-text">{event.date}</p>
-    
-    <a href="#" className="btn btn-primary event-btn" onClick={handleReservation}>Rezervisi</a>
+    </div>
+    <div>
+    <a>
+      <button className="btn btn-primary event-btn" onClick={handleReservation}>Rezerviši
+      <i class="fas fa-arrow-right sticker-white" id="white"></i>
+      </button>
+    </a>
+    </div>
 
   </div>
   </div>

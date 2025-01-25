@@ -51,7 +51,7 @@ function EventsPage({token}) {
     <div className="events">
       <div className="header">
 
-
+      <h1>Dostupni dogadjaji</h1>
       <div className="filter-section">
         <input
           type="text"
@@ -69,7 +69,9 @@ function EventsPage({token}) {
           value={filters.location}
           onChange={handleFilterChange}
         />
-        <button className="btn btn-light admin-show" onClick={handleSearch}>Pretraži</button>
+        <button className=" search-btn" onClick={handleSearch}>Pretraži
+        <i className="fa-solid fa-magnifying-glass"></i>
+        </button>
       </div>
 
       </div>

@@ -2,6 +2,40 @@
   color: #293241;
 
 }
+.event-btn{
+  display: flex;
+  gap:1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.event-btn i{
+  color:white;
+}
+#white{
+  color:white;
+}
+.form-control{
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  padding:0.25rem 0.5rem;
+}
+.search-btn{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap:2rem;
+  padding:0.5rem 1.5rem;
+  background-color: #4c4d50;
+  color:white;
+  border-radius: 1rem;
+  border:none;
+  border-color:#4c4d50 ;
+}
+.search-btn:hover{
+  background-color: #38393a;
+}
+.search-btn i{
+  color:white;
+}
 .events{
   display: flex;
   flex-direction: column;
@@ -16,14 +50,19 @@
   width: 80%;
   height: 20%;
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
   align-items: center;
   gap:2rem;
 }
 .header h4{
   padding-top:0.2rem;
 }
-
+.card button{
+  color:white;
+}
+.card i{
+  color:white;
+}
 .cards{
   margin-top:1rem;
   display: flex;
@@ -35,45 +74,66 @@
 }
 
 .card{
- background-color: #eaf2f8;
-  height: 23rem;
+ /*background-color: #eaf2f8;*/
+ background-color: white;
+  height: 27rem;
   width: 30%;
   border-radius: 1.5rem 1.5rem;
+  border: 1px solid rgb(206, 199, 199);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 .card-body{
   color: #293241;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  gap:1rem;
+  align-items: flex-start;
+  gap:0.5rem;
 } 
+.card-body i{
+  color:black;
+}
+.flex{
+  align-items: center;
+  justify-content: space-between;
+  gap:0.5rem;
+  display: flex;
+}
+.card-body div{
+  height:30%;
+  margin-bottom:1rem;
+}
 .card-body .card-title{
   align-items: center;
   justify-self: baseline;
 }
+.card-title{
+  font-weight: bold;
+}
 .btn{
   /*background-color: #ee6c4d;*/
   /*background-color: #d98880;*/
-  background-color: #909497;
-  border-color: #909497;
+ /* background-color: #909497;
+  border-color: #909497;*/
+  background-color: #98999B;
+  border-color: #98999B;
+  border-radius: 1rem;
   color: #293241;
 }
 .btn:hover{
   background-color: #a41b1b;
-  border-color: #626567;
- color: #293241;
+  border-color: #a41b1b;
+ color: white;
 }
 .btn:active{
-  background-color: #626567;
-  border-color: #626567;
- color: #293241;
+  background-color: #a41b1b;
+  border-color: #a41b1b;
+ color: white;
 }
 .btn:focus{
-  background-color: #626567;
-  border-color: #626567;
- color: #293241;
+  background-color: #a41b1b;
+  border-color: #a41b1b;
+ color: white;
 }
 
 .pagination{
@@ -88,5 +148,29 @@
 }
 
 .event-btn:hover{
-  background-color: #5c616b;
+  background-color: #D8515D;
+  border-color:#D8515D ;
+}
+
+.pagionation-buttons button{
+  background-color: #98999B;
+  border-color: #98999B;
+  border-radius: 0.5rem;
+}
+.pagionation-buttons .active button{
+  background-color: #98999B;
+  border-color: #98999B;
+  border-radius: 0.5rem;
+}
+.pagionation-buttons button:hover{
+  background-color: #D8515D;
+  border-color:#D8515D ;
+}
+.pagionation-buttons button:active{
+  background-color: #D8515D;
+  border-color:#D8515D ;
+}
+.pagionation-buttons button:focus{
+  background-color: #D8515D;
+  border-color:#D8515D ;
 }

@@ -89,8 +89,9 @@ function MyReservations({token}) {
   
     return (
       <div className="reservations-wrapper">
-        <button onClick={handleDownload} className="btn admin-show">
+        <button onClick={handleDownload} className="btn user-download">
       Skini rezervacije u PDF-u
+      <i className="fa-solid fa-download"></i>
     </button>
     {isLoading  ?  ( <p>Rezervacije se ucitavaju</p> )
           : reservations.length === 0 ? (
@@ -107,11 +108,13 @@ function MyReservations({token}) {
   </thead>
   <tbody>
   {reservations.map((reservation) => (
+    
         <tr key={reservation.event.id}>
             <td>{reservation.event.title}</td>
             <td>{reservation.event.date}</td>
             <td>{reservation.event.location}</td>
-            <td><button type='button' className="btn admin-delete" onClick={handleDelete}>Obriši</button></td>
+            <td><button type='button' className="btn user-delete" onClick={() => handleDelete(reservation.id_user,reservation.id_event)}>Obriši
+            <i className="fa-solid fa-trash"></i></button></td>
         </tr>
     ))}
   </tbody>
