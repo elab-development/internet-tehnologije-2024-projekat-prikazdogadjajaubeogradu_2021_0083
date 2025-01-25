@@ -52,7 +52,7 @@ function EventsPage({token}) {
       <div className="header">
 
       <h1>Dostupni dogadjaji</h1>
-      <div className="filter-section">
+      <div className="filter-section-events">
         <input
           type="text"
           name="title"
@@ -90,7 +90,7 @@ function EventsPage({token}) {
       <button
         disabled={currentPage === 1}
         onClick={() => handlePageChange(currentPage - 1)}
-        className="btn btn-light"
+        className="btn btn-light "
       >
         &laquo; Previous
       </button>
@@ -98,7 +98,7 @@ function EventsPage({token}) {
       {Array.from({ length: totalPages }, (_, index) => (
         <button
           key={index + 1}
-          className={currentPage === index + 1 ? "active btn btn-light" : "btn btn-light"}
+          className={currentPage === index + 1 ? "active btn btn-light hide" : "btn btn-light hide"}
           
           onClick={() => handlePageChange(index + 1)}
         >
@@ -111,7 +111,7 @@ function EventsPage({token}) {
         disabled={currentPage === totalPages}
         onClick={() => handlePageChange(currentPage + 1)
         }
-        className="btn btn-light"
+        className="btn btn-light "
       >
         Next &raquo;
       </button>

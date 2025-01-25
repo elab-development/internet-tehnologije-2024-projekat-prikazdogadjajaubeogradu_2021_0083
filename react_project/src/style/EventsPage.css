@@ -110,6 +110,9 @@
 .card-title{
   font-weight: bold;
 }
+.navbar-toggler-icon{
+  color: white;
+}
 .btn{
   /*background-color: #ee6c4d;*/
   /*background-color: #d98880;*/
@@ -173,4 +176,40 @@
 .pagionation-buttons button:focus{
   background-color: #D8515D;
   border-color:#D8515D ;
+}
+.filter-section-events{
+  display: flex;
+  flex-direction:row;
+  gap:1rem;
+}
+
+@media screen and (max-width: 800px){
+  .header{
+    flex-direction: column;
+  }
+  .filter-section-events{
+    flex-direction: column;
+  }
+.cards{
+  justify-content: center;
+}
+.card{
+  width:80%;
+}
+.navbar-toggler{
+  margin-right:1rem;
+}
+.hide{
+  display: none;  
+}
+.pagination{
+  width:80%;
+  padding:0;
+  gap:2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.pagination button{
+  width: 10rem;
+}
 }
