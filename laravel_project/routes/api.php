@@ -37,14 +37,11 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
 Route::middleware(['auth:sanctum',  \App\Http\Middleware\AdminMiddleware::class])->group(function () {
     Route::resource('users', UserController::class);
-
     Route::get('/users/{id}', [UserController::class, 'show']);
     Route::post('/users', [UserController::class, 'store']);
     Route::delete('/users/{id}', [UserController::class, 'destroy']);
 
 });
-
-
 
 Route::resource('events',EventController::class);
 Route::get('/events/{id}',[EventController::class,'show']);

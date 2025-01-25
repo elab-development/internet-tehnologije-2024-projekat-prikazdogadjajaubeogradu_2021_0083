@@ -86,6 +86,6 @@ class UserController extends Controller
             return response()->json('Data not found','404');
         }
         $user->delete();
-        return response(status:204);
+        return response()->json('Deleted successfully','204');
     }
 }

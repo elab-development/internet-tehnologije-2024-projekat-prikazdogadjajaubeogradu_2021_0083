@@ -46,7 +46,8 @@ class AuthController extends Controller
 
         $token=$user->createToken('auth token')->plainTextToken;
 
-        return response()->json(['message'=>'Dobrodosli, '.$user->name,'access_token'=>$token,'token_type'=>'Bearer', 'success'=>true,'user_type'=>$user->user_type]);
+        return response()->json(['message'=>'Dobrodosli, '.$user->name,'access_token'=>$token,
+        'token_type'=>'Bearer', 'success'=>true,'user_type'=>$user->user_type]);
     }
 
     public function logout()
