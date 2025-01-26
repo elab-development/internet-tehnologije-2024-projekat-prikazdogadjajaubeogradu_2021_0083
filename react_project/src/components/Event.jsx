@@ -24,7 +24,17 @@ function Event({event,token}) {
      // console.log(JSON.stringify(response.data));
     })
     .catch((error) => {
-      console.log(error);
+      if (error.response) {
+        if (error.response.status === 400) {
+          console.log("Poruka sa servera:", error.response.data.message); 
+          alert(error.response.data.message); 
+        } else if (error.response.status === 500) {
+          alert("Došlo je do greške");
+        }
+      } else {
+        console.error("Greška prilikom rezervacije:", error);
+        alert("Došlo je greške");
+      }
     });
   };
   
@@ -37,17 +47,17 @@ function Event({event,token}) {
     </div>
 
       <div className="flex">
-      <i class="fas fa-map-marker-alt"></i>
+      <i className="fas fa-map-marker-alt"></i>
       <p className="card-text">{event.location}</p>
       </div>
     <div className="flex">
-    <i class="fa-solid fa-calendar-days"></i>
+    <i className="fa-solid fa-calendar-days"></i>
     <p className="card-text">{event.date}</p>
     </div>
     <div>
     <a>
       <button className="btn btn-primary event-btn" onClick={handleReservation}>Rezerviši
-      <i class="fas fa-arrow-right sticker-white" id="white"></i>
+      <i className="fas fa-arrow-right sticker-white" id="white"></i>
       </button>
     </a>
     </div>

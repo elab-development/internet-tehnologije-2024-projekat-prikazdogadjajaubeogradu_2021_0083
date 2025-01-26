@@ -54,4 +54,49 @@
 .user-download i{
 color:white;
 }
+span{
+  color:white;
+}
 
+
+
+@media screen and (max-width: 800px){
+  .center-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .reservations-wrapper{
+    width: 98%;
+    height: auto;
+    padding:0.2rem;
+    margin:0;
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .reservations-wrapper button{
+    width: 60%;
+  }
+  .min{
+    align-items: center;
+    justify-content: center;
+    padding:0.2rem 0.7rem;
+    font-size: 1rem;
+
+  }
+  #td{
+    padding: 0.2rem;
+  }
+  #th{
+    font-size: 1rem;
+    padding:0.2rem;
+  }
+ 
+  span{
+    display: none;
+  }
+}

@@ -47,7 +47,20 @@ class ReservationController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request,Event $event)
-    {
+    {   
+        $userId = $request->user()->id;
+
+        // Proveri da li je korisnik već rezervisao ovaj događaj
+        $existingReservation = Reservation::where('id_user', $userId)
+                                          ->where('id_event', $event->id)
+                                          ->first();
+    
+        if ($existingReservation) {
+            return response()->json([
+                'message' => 'Već ste rezervisali ovaj događaj.'
+            ], 400); 
+        }
+
         $reservation = $this->loadRelationships(
             $event->reservations()->create([
                 'id_user' => $request->user()->id

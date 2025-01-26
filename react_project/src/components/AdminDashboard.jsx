@@ -140,10 +140,10 @@ function AdminDashboard() {
     <table className="table">
       <thead>
         <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Ime</th>
-          <th scope="col">Email adresa</th>
-          <th scope="col">Tip korisnika</th>
+          <th id="th_hide" scope="col">ID</th>
+          <th id="th" scope="col">Ime</th>
+          <th id="th" scope="col">Email adresa</th>
+          <th id="th_hide" scope="col">Tip korisnika</th>
           <th></th>
           <th></th>
         </tr>
@@ -153,24 +153,26 @@ function AdminDashboard() {
           .filter(user => user.user_type === "user") 
           .map((user) => (
             <tr key={user.id}>
-              <th scope="row">{user.id}</th>
-              <td>{user.name}</td>
-              <td>{user.email}</td>
-              <td>{user.user_type}</td>
-              <td>
+              <th id="th_hide" scope="row">{user.id}</th>
+              <td id="td">{user.name}</td>
+              <td id="td">{user.email}</td>
+              <td id="td_hide">{user.user_type}</td>
+              <td id="td">
                 <button 
                   type="button" 
                   className="btn admin-delete" 
                   onClick={() => handleDelete(user)}>
-                  Obriši korisnika
+                  <span>Obriši korisnika</span>
+                  <i className="fa-solid fa-trash"></i>
                 </button>
               </td>
-              <td>
+              <td id="td">
                 <button 
                   type="button" 
                   className="btn admin-show" 
                   onClick={() => handleReservations(user.id)}>
-                  Rezervacije
+                  <span>Rezervacije</span>
+                  <i className="fa-solid fa-list"></i>
                 </button>
               </td>
             </tr>
@@ -197,8 +199,14 @@ function AdminDashboard() {
               }}
             >
               <h5>{reservation.event.title}</h5>
+              <div>
+              <i className="fas fa-map-marker-alt"></i>
               <p>Lokacija {reservation.event.location}</p>
+              </div>
+              <div>
+              <i className="fa-solid fa-calendar-days"></i>
               <p>Datum: {reservation.event.date}</p>
+              </div>
               <button
                 onClick={() =>
                   handleDeleteReservation(
@@ -206,9 +214,10 @@ function AdminDashboard() {
                     reservation.id_event
                   )
                 }
-                className="btn btn-danger"
+                className="btn btn-danger res-delete"
               >
-                Obriši rezervaciju
+                <span>Obriši korisnika</span>
+                <i className="fa-solid fa-trash"></i>
               </button>
             </div>
           ))}

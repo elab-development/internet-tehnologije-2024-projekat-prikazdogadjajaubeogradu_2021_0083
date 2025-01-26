@@ -88,6 +88,7 @@ function MyReservations({token}) {
       };
   
     return (
+      <div className="center-container">
       <div className="reservations-wrapper">
         <button onClick={handleDownload} className="btn user-download">
       Skini rezervacije u PDF-u
@@ -100,26 +101,27 @@ function MyReservations({token}) {
       <table className="table">
   <thead>
     <tr>
-      <th scope="col">Naziv dogadjaja</th>
-      <th scope="col">Datum</th>
-      <th scope="col">Lokacija</th>
+      <th scope="col" id="th">Naziv dogadjaja</th>
+      <th scope="col" id="th">Datum</th>
+      <th scope="col" id="th">Lokacija</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
   {reservations.map((reservation) => (
     
-        <tr key={reservation.event.id}>
-            <td>{reservation.event.title}</td>
-            <td>{reservation.event.date}</td>
-            <td>{reservation.event.location}</td>
-            <td><button type='button' className="btn user-delete" onClick={() => handleDelete(reservation.id_user,reservation.id_event)}>Obriši
+        <tr key={`${reservation.id_user}-${reservation.id_event}`}>
+            <td id="td">{reservation.event.title}</td>
+            <td id="td">{reservation.event.date}</td>
+            <td id="td">{reservation.event.location}</td>
+            <td id="td"><button type='button' className="btn user-delete min" onClick={() => handleDelete(reservation.id_user,reservation.id_event)}><span>Obriši</span>
             <i className="fa-solid fa-trash"></i></button></td>
         </tr>
     ))}
   </tbody>
 </table>
           )}
+</div>
 </div>
     );
 }

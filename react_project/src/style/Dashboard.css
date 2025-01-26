@@ -7,7 +7,7 @@
 }
 
 .dashboard-wrapper button{
-  margin-bottom: 1.5rem;
+  
 }
 .admin-delete{
   display: flex;
@@ -19,11 +19,30 @@
   color:white;
   padding:0.5rem 2rem;
 }
+.admin-delete i{
+  color:white;
+}
 .admin-delete:active{
   background-color: #a41b1b;
 }
 .admin-delete:focus{
   background-color: rgb(140, 59, 59);
+}
+.res-delete{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap:1rem;
+  background-color: rgb(180, 86, 86);
+}
+.res-delete:active{
+  background-color: #a41b1b;
+}
+.res-delete:focus{
+  background-color: rgb(140, 59, 59);
+}
+.res-delete i{
+  color:white;
 }
 .admin-show{
   display: flex;
@@ -36,10 +55,67 @@
   color:white;
   padding:0.5rem 2rem;
   }
-
+  .admin-show i{
+    color:white;
+  }
   .admin-show:hover, .admin-show:active, .admin-show:focus{
     background-color: rgb(33, 53, 114);
     border-color:rgb(54, 77, 146);
+  }
+  .reservation-card{
+    box-shadow: 2px 2px 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 2rem;
+  }
+  .reservation-card h5{
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  .reservation-card div{
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    display: flex;
+    margin-bottom: 1rem;
+  }
+  .reservation-card p{
+    margin:0;
+  }
+
+  
+  @media screen and (max-width: 950px){
+    #td_hide{
+      display: none;
+    }
+    #th_hide{
+display: none;
+    }
+      .dashboard-wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin:5rem 1rem;
+        padding:0.2rem;
+        flex-direction: column;
+      }
+      .admin-delete{
+        justify-content: center;
+        padding:0.2rem 0.5rem;
+        font-size: 1rem;
+      }
+      .reservation-list{
+        width: 100%;
+      }
+      .admin-delete span{
+        display: none;
+      }
+      .admin-show{
+        padding:0.2rem 0.5rem;
+        font-size: 1rem;
+        justify-content: center;
+      }
+      .admin-show span{
+        display: none;
+      }
   }
   
   

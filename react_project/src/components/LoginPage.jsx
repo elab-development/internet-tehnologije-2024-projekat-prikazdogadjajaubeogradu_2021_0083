@@ -52,7 +52,7 @@ function LoginPage({addToken}) {
                 type="email"
                 id="email"
                 className="form-input"
-                placeholder="Enter your email"
+                placeholder="Unesite email adresu"
                 onInput={handleInput}
                 name="email"
               />
@@ -66,7 +66,7 @@ function LoginPage({addToken}) {
                 type="password"
                 id="password"
                 className="form-input"
-                placeholder="Enter your password"
+                placeholder="Unesite lozinku"
                 onInput={handleInput} name="password"
               />
             </div>

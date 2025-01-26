@@ -113,6 +113,10 @@
 .navbar-toggler-icon{
   color: white;
 }
+
+.navbar-toggler i{
+  color:white;
+}
 .btn{
   /*background-color: #ee6c4d;*/
   /*background-color: #d98880;*/
@@ -197,7 +201,7 @@
   width:80%;
 }
 .navbar-toggler{
-  margin-right:1rem;
+  
 }
 .hide{
   display: none;  

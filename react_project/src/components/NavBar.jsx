@@ -36,7 +36,7 @@ function NavBar({token}) {
       <a className="navbar-brand" href="/events">BelEvents</a>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarWithDropdown" aria-controls="navbarWithDropdown" aria-expanded="false" aria-label="Toggle navigation">
       {/*<span className="navbar-toggler-icon"></span>*/}
-        <i class="fa-solid fa-bars"></i>
+        <i className="fa-solid fa-bars"></i>
       </button>
       <div className="collapse navbar-collapse show" id="navbarWithDropdown">
         <ul className="navbar-nav">
