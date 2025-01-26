@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../style/EventsPage.css';
+import Button from './Button.jsx';
 
 function Event({event,token}) {
     let navigate = useNavigate();
@@ -56,9 +57,17 @@ function Event({event,token}) {
     </div>
     <div>
     <a>
-      <button className="btn btn-primary event-btn" onClick={handleReservation}>Rezerviši
+              <Button 
+                className="btn btn-primary event-btn" 
+                onClick={() => handleReservation()} 
+                iconClass="fas fa-arrow-right sticker-white"
+                id="white"
+                >
+                  Rezerviši
+                </Button>
+      {/*<button className="btn btn-primary event-btn" onClick={handleReservation}>Rezerviši
       <i className="fas fa-arrow-right sticker-white" id="white"></i>
-      </button>
+      </button>*/}
     </a>
     </div>
 

@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios';
 import { useState, useEffect } from "react";
 import '../style/Dashboard.css'
+import Button from './Button.jsx';
 
 function AdminDashboard() {
   const [users, setUsers] = useState([]);
@@ -99,7 +100,7 @@ function AdminDashboard() {
     };
 
     const handleDeleteReservation = async (userId, eventId) => {
-      if (!window.confirm("Are you sure you want to delete this reservation?")) {
+      if (!window.confirm("Da li ste sigurni da želite da obrišete rezervaciju?")) {
         return;
       }
   
@@ -122,10 +123,10 @@ function AdminDashboard() {
           )
         );
   
-        alert("Reservation deleted successfully.");
+        alert("Rezervacija uspešno obrisana.");
       } catch (error) {
-        console.error("Error deleting reservation:", error.response || error);
-        alert("Failed to delete the reservation. Please try again.");
+        console.error("Greška tokom brisanja rezervacije:", error.response || error);
+        alert("Neuspešno. Molimo Vas pokušajte opet.");
       }
     };
 
@@ -158,22 +159,22 @@ function AdminDashboard() {
               <td id="td">{user.email}</td>
               <td id="td_hide">{user.user_type}</td>
               <td id="td">
-                <button 
-                  type="button" 
-                  className="btn admin-delete" 
-                  onClick={() => handleDelete(user)}>
-                  <span>Obriši korisnika</span>
-                  <i className="fa-solid fa-trash"></i>
-                </button>
+                 <Button 
+                className="btn admin-delete" 
+                onClick={() => handleDelete(user)} 
+                iconClass="fa-solid fa-trash"
+                >
+                  Obriši korisnika
+                </Button>
               </td>
               <td id="td">
-                <button 
-                  type="button" 
-                  className="btn admin-show" 
-                  onClick={() => handleReservations(user.id)}>
-                  <span>Rezervacije</span>
-                  <i className="fa-solid fa-list"></i>
-                </button>
+              <Button 
+                className="btn admin-show" 
+                onClick={() => handleReservations(user.id)} 
+                iconClass="fa-solid fa-list"
+                >
+                  Rezervacije
+                </Button>
               </td>
             </tr>
           ))}
@@ -207,18 +208,16 @@ function AdminDashboard() {
               <i className="fa-solid fa-calendar-days"></i>
               <p>Datum: {reservation.event.date}</p>
               </div>
-              <button
-                onClick={() =>
-                  handleDeleteReservation(
-                    reservation.id_user,
-                    reservation.id_event
-                  )
-                }
-                className="btn btn-danger res-delete"
-              >
-                <span>Obriši rezervaciju</span>
-                <i className="fa-solid fa-trash"></i>
-              </button>
+              <Button 
+                className="btn btn-danger res-delete" 
+                onClick={() => handleDeleteReservation(
+                  reservation.id_user,
+                  reservation.id_event
+                )} 
+                iconClass="fa-solid fa-trash"
+                >
+                  Obriši rezervaciju
+                </Button>
             </div>
           ))}
         </div>

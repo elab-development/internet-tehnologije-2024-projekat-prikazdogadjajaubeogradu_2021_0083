@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { useState, useEffect } from "react";
 import '../style/Reservations.css'
-
+import Button from './Button.jsx';
 function MyReservations({token}) {
 
     const [reservations, setReservations] = useState([]);
@@ -90,7 +90,7 @@ function MyReservations({token}) {
     return (
       <div className="center-container">
       <div className="reservations-wrapper">
-        <button onClick={handleDownload} className="btn user-download">
+              <button onClick={handleDownload} className="btn user-download">
       Skini rezervacije u PDF-u
       <i className="fa-solid fa-download"></i>
     </button>
@@ -114,8 +114,15 @@ function MyReservations({token}) {
             <td id="td">{reservation.event.title}</td>
             <td id="td">{reservation.event.date}</td>
             <td id="td">{reservation.event.location}</td>
-            <td id="td"><button type='button' className="btn user-delete min" onClick={() => handleDelete(reservation.id_user,reservation.id_event)}><span>Obriši</span>
-            <i className="fa-solid fa-trash"></i></button></td>
+            <td id="td">
+            <Button 
+                className="btn user-delete min" 
+                onClick={() => handleDelete(reservation.id_user,reservation.id_event)} 
+                iconClass="fa-solid fa-trash"
+                >
+                  Obriši
+                </Button>             
+            </td>
         </tr>
     ))}
   </tbody>
