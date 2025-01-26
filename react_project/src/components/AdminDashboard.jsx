@@ -201,7 +201,7 @@ function AdminDashboard() {
               <h5>{reservation.event.title}</h5>
               <div>
               <i className="fas fa-map-marker-alt"></i>
-              <p>Lokacija {reservation.event.location}</p>
+              <p>Lokacija: {reservation.event.location}</p>
               </div>
               <div>
               <i className="fa-solid fa-calendar-days"></i>
@@ -216,7 +216,7 @@ function AdminDashboard() {
                 }
                 className="btn btn-danger res-delete"
               >
-                <span>Obriši korisnika</span>
+                <span>Obriši rezervaciju</span>
                 <i className="fa-solid fa-trash"></i>
               </button>
             </div>

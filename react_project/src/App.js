@@ -20,6 +20,7 @@ function App() {
       <Route path="/login" element={<LoginPage addToken={addToken}/>} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/" element={<NavBar token={token}/>}>
+        <Route path="/" element={<EventsPage token={token} />} />
         <Route path="events" element={<EventsPage token={token} />} />
         <Route path="reservations" element={<MyReservations token={token} />} />
         <Route path="dashboard"  element={<AdminDashboard/>}/>
@@ -27,6 +28,8 @@ function App() {
       </Routes>
     </div>
     </BrowserRouter>
+
+
   );
 }
 
