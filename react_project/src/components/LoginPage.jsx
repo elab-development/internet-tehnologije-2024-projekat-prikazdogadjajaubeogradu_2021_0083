@@ -5,6 +5,7 @@ import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import grb from '../images/grb.png';
 import '../style/LoginPage.css';
+import Input from './Input.jsx';
 function LoginPage({addToken}) {
     const [userData, setUserData] = useState({
       email:"",
@@ -48,26 +49,28 @@ function LoginPage({addToken}) {
               <label htmlFor="email" className="form-label">
                 Email adresa
               </label>
-              <input
-                type="email"
-                id="email"
-                className="form-input"
-                placeholder="Unesite email adresu"
-                onInput={handleInput}
-                name="email"
+              <Input
+              type="email"
+              id="email"
+              className="form-input"
+              placeholder="Unesite email adresu"
+              name="email"
+              onInput={handleInput}
               />
+              
             </div>
 
             <div className="form-group">
               <label htmlFor="password" className="form-label">
                 Šifra
               </label>
-              <input
-                type="password"
-                id="password"
-                className="form-input"
-                placeholder="Unesite lozinku"
-                onInput={handleInput} name="password"
+              <Input
+              type="password"
+              id="password"
+              className="form-input"
+              placeholder="Unesite lozinku"
+              onInput={handleInput}
+              name="password"
               />
             </div>
 

@@ -3,6 +3,7 @@ import Event from '../components/Event';
 import axios from 'axios';
 import { useState, useEffect } from "react";
 import '../style/EventsPage.css';
+import Input from './Input.jsx';
 function EventsPage({token}) {
   const [events, setEvents] = useState([]);
   const [currentPage, setCurrentPage] = useState(1); 
@@ -53,22 +54,22 @@ function EventsPage({token}) {
 
       <h1>Dostupni dogadjaji</h1>
       <div className="filter-section-events">
-        <input
-          type="text"
-          name="title"
-          className="form-control"
-          placeholder="Naziv"
-          value={filters.title}
-          onChange={handleFilterChange}
-        />
-        <input
-          type="text"
-          className="form-control"
-          name="location"
-          placeholder="Lokacija"
-          value={filters.location}
-          onChange={handleFilterChange}
-        />
+      <Input
+              type="text"
+              className="form-control"
+              placeholder="Naziv"
+              name="title"
+              onChange={handleFilterChange}
+              value={filters.title}
+              />
+  <Input
+              type="text"
+              className="form-control"
+              placeholder="Lokacija"
+              name="location"
+              onChange={handleFilterChange}
+              value={filters.location}
+              />
         <button className=" search-btn" onClick={handleSearch}>Pretraži
         <i className="fa-solid fa-magnifying-glass"></i>
         </button>

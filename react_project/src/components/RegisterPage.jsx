@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import '../App.css';
 import '../style/RegisterPage.css';
 import grb from '../images/grb.png';
-
+import Input from './Input.jsx';
 
 
 function RegisterPage() {
@@ -50,30 +50,43 @@ const [userData, setUserData] = useState({
           <form className="register-form"  onSubmit={handleRegister}>
             <div className="form-group">
               <label htmlFor="name">Ime</label>
-              <input type="text" id="name" placeholder="Unesite ime" required name="name" onInput={handleInput}/>
+              <Input
+              type="text"
+              id="name"
+              placeholder="Unesite ime"
+              name="name"
+              onInput={handleInput}
+              />
+
             </div>
             <div className="form-group">
               <label htmlFor="email">Email adresa</label>
-              <input type="email" id="email" placeholder="Unesite email adresu" name="email" onInput={handleInput}/>
+              <Input
+              type="email"
+              id="email"
+              placeholder="Unesite email adresu"
+              name="email"
+              onInput={handleInput}
+              />
             </div>
             <div className="form-group">
               <label htmlFor="password">Šifra</label>
-              <input
-                type="password"
-                id="password"
-                placeholder="Unesite lozinku"
-                name="password"
-                onInput={handleInput}
+              <Input
+              type="password"
+              id="password"
+              placeholder="Unesite lozinku"
+              name="password"
+              onInput={handleInput}
               />
             </div>
             <div className="form-group">
               <label htmlFor="confirmPassword">Potvrdi šifru</label>
-              <input
-                type="password"
-                id="confirmPassword"
-                placeholder="Potvrdite lozinku"
-                name="confirmPassword" 
-                onInput={handleInput}
+              <Input
+              type="password"
+              id="confirmPassword"
+              placeholder="Potvrdite lozinku"
+              name="confirmPassword"
+              onInput={handleInput}
               />
             </div>
             <button type="submit" className="register-button">
