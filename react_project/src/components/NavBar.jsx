@@ -48,7 +48,7 @@ function NavBar({token}) {
             <a className="nav-link dropdown-toggle" href="/account" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Moj nalog
             </a>
-            
+              
               {window.sessionStorage.getItem("auth_token") === null ? 
               (<ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <li><a className="dropdown-item" href="/login">Uloguj se</a></li>

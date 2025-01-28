@@ -35,7 +35,7 @@ function LoginPage({addToken}) {
         else{
           const newErrors = {
             password: res.data["0"]?.password?.[0],
-            email: res.data["0"]?.email?.[0]
+            email: res.data["0"]?.email?.[0] ? res.data["0"].email[0] : res.data.message,
         };
         setErrors(newErrors);
         }
