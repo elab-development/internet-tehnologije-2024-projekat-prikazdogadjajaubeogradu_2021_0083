@@ -3,12 +3,13 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../style/EventsPage.css';
 import Button from './Button.jsx';
-
 function Event({event,token}) {
     let navigate = useNavigate();
-  
+
   const handleReservation = async () => {
     //console.log(window.sessionStorage.getItem("auth_token"));
+    
+
     let config = {
       method: 'post',
       maxBodyLength: Infinity,

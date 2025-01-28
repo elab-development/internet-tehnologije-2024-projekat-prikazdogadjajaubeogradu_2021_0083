@@ -2,9 +2,10 @@ import React from 'react';
 import axios from 'axios';
 import { useNavigate,Outlet } from 'react-router-dom';
 import '../style/NavBar.css';
+import useUserType from './useUserType.jsx';
 function NavBar({token}) {
   let navigate = useNavigate();
-
+  let userType = useUserType();
   function handleLogout(e){
     e.preventDefault();
     let config = {
@@ -22,7 +23,7 @@ function NavBar({token}) {
         }
       console.log(JSON.stringify(response.data));
       window.sessionStorage.setItem("auth_token", null);
-      
+      window.sessionStorage.setItem("user_type", null);
     })
     .catch((error) => {
       console.log(error);
@@ -48,14 +49,14 @@ function NavBar({token}) {
               Moj nalog
             </a>
             
-              {window.sessionStorage.getItem("auth_token") == null ? 
+              {window.sessionStorage.getItem("auth_token") === null ? 
               (<ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <li><a className="dropdown-item" href="/login">Uloguj se</a></li>
                  <li><a className="dropdown-item" href="/register">Registruj se</a></li> 
                   </ul> )
                    : 
                   (<ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    {window.sessionStorage.getItem("user_type") == "admin" ? <li><a className="dropdown-item" href="/dashboard">Admin stranica</a></li> : <></>}
+                    {userType === "admin" ? <li><a className="dropdown-item" href="/dashboard">Admin stranica</a></li> : <></>}
                   <li><a className="dropdown-item" href="/reservations">Moje rezervacije</a></li>
                   <li><a className="dropdown-item" href="/login" onClick={handleLogout}>Odjavi se</a></li> 
                   
