@@ -7,6 +7,7 @@ import { useState } from "react";
 import EventsPage from './components/EventsPage';
 import MyReservations from './components/MyReservations';
 import AdminDashboard  from './components/AdminDashboard';
+import ProtectedRoute from './components/ProtectedRoute';
 function App() {
   const [token,setToken]=useState();
   function addToken(auth_token){
@@ -23,7 +24,13 @@ function App() {
         <Route path="/" element={<EventsPage token={token} />} />
         <Route path="events" element={<EventsPage token={token} />} />
         <Route path="reservations" element={<MyReservations token={token} />} />
-        <Route path="dashboard"  element={<AdminDashboard/>}/>
+        <Route path="dashboard"
+        element={<ProtectedRoute
+            userType="admin" 
+            element={<AdminDashboard />}
+        />
+    }
+/>
       </Route>
       </Routes>
     </div>

@@ -8,7 +8,7 @@ function Event({event,token}) {
     let navigate = useNavigate();
   
   const handleReservation = async () => {
-    
+    //console.log(window.sessionStorage.getItem("auth_token"));
     let config = {
       method: 'post',
       maxBodyLength: Infinity,
@@ -29,6 +29,7 @@ function Event({event,token}) {
         if (error.response.status === 400) {
           console.log("Poruka sa servera:", error.response.data.message); 
           alert(error.response.data.message); 
+          return;
         } else if (error.response.status === 500) {
           alert("Došlo je do greške");
         }
@@ -36,6 +37,7 @@ function Event({event,token}) {
         console.error("Greška prilikom rezervacije:", error);
         alert("Došlo je greške");
       }
+      navigate("/login");
     });
   };
   

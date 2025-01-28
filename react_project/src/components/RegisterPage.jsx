@@ -6,9 +6,12 @@ import '../App.css';
 import '../style/RegisterPage.css';
 import grb from '../images/grb.png';
 import Input from './Input.jsx';
+import ValidationMessage from './ValidationMessage.jsx';
 
 
 function RegisterPage() {
+    const [errors, setErrors] = useState({});
+  
 const [userData, setUserData] = useState({
       name:"",
       email:"",
@@ -21,6 +24,16 @@ const [userData, setUserData] = useState({
         console.log(res.data);
         if(res.data.success===true){
         navigate("/login");
+        }
+        else{
+          const newErrors = {
+            name:res.data["0"]?.name?.[0],
+            password: res.data["0"]?.password?.[0],
+            email: res.data["0"]?.email?.[0],
+            /*           password_confirmation:res.data["0"]?.password_confirmation?.[0],*/ 
+        };
+        setErrors(newErrors);
+        console.log(errors);
         }
       }).catch((err)=>{
         console.log(err.message);
@@ -49,7 +62,10 @@ const [userData, setUserData] = useState({
           <h2 className="register-title">Napravi nalog</h2>
           <form className="register-form"  onSubmit={handleRegister}>
             <div className="form-group">
+              <div className='label-container'>
               <label htmlFor="name">Ime</label>
+              <ValidationMessage message={errors.name} />
+              </div>
               <Input
               type="text"
               id="name"
@@ -57,10 +73,15 @@ const [userData, setUserData] = useState({
               name="name"
               onInput={handleInput}
               />
-
+              
             </div>
             <div className="form-group">
-              <label htmlFor="email">Email adresa</label>
+            <div className='label-container'>
+            <label htmlFor="email">Email adresa</label>
+            <ValidationMessage message={errors.email} />
+              </div>
+
+              
               <Input
               type="email"
               id="email"
@@ -68,9 +89,12 @@ const [userData, setUserData] = useState({
               name="email"
               onInput={handleInput}
               />
-            </div>
+                          </div>
             <div className="form-group">
-              <label htmlFor="password">Šifra</label>
+            <div className='label-container'>
+            <label htmlFor="password">Šifra</label>
+            <ValidationMessage message={errors.password} />
+            </div>
               <Input
               type="password"
               id="password"
@@ -80,12 +104,16 @@ const [userData, setUserData] = useState({
               />
             </div>
             <div className="form-group">
-              <label htmlFor="confirmPassword">Potvrdi šifru</label>
+            <div className='label-container'>
+            <label htmlFor="password_confirmation">Potvrdi šifru</label>
+            <ValidationMessage message={errors.password} />
+
+</div>
               <Input
               type="password"
               id="confirmPassword"
               placeholder="Potvrdite lozinku"
-              name="confirmPassword"
+              name="password_confirmation"
               onInput={handleInput}
               />
             </div>

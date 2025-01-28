@@ -8,9 +8,11 @@ const Input = ({
   name,
   onInput,
   onChange,
-  value
+  value,
+  error
 }) => {
   return (
+    <div>
     <input
       type={type}
       id={id}
@@ -21,6 +23,8 @@ const Input = ({
       value={value}
       onChange={onChange}
     />
+    {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
+    </div>
   );
 };
 

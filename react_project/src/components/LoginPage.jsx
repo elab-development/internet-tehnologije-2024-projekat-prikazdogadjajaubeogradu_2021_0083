@@ -6,7 +6,9 @@ import { useNavigate } from 'react-router-dom';
 import grb from '../images/grb.png';
 import '../style/LoginPage.css';
 import Input from './Input.jsx';
+import ValidationMessage from './ValidationMessage.jsx';
 function LoginPage({addToken}) {
+  const [errors, setErrors] = useState({});
     const [userData, setUserData] = useState({
       email:"",
       password:"",
@@ -23,15 +25,23 @@ function LoginPage({addToken}) {
     function handleLogin(e){
       e.preventDefault();
       axios.post('http://127.0.0.1:8000/api/login',userData).then((res)=>{
-        console.log(res.data);
+        //console.log(res.data);
         if(res.data.success===true){
           window.sessionStorage.setItem('auth_token',res.data.access_token);
           window.sessionStorage.setItem('user_type',res.data.user_type);
           
           navigate("/events");
         }
-      }).catch((err)=>{
-        console.log(err.message);
+        else{
+          const newErrors = {
+            password: res.data["0"]?.password?.[0],
+            email: res.data["0"]?.email?.[0]
+        };
+        setErrors(newErrors);
+        }
+      }).catch((error)=>{
+       console.log(error);
+
       });
     }
     return (
@@ -57,7 +67,7 @@ function LoginPage({addToken}) {
               name="email"
               onInput={handleInput}
               />
-              
+              <ValidationMessage message={errors.email} />
             </div>
 
             <div className="form-group">
@@ -72,6 +82,8 @@ function LoginPage({addToken}) {
               onInput={handleInput}
               name="password"
               />
+              <ValidationMessage message={errors.password} />
+
             </div>
 
             <button type="submit" className="login-button">
