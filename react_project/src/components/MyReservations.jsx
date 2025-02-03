@@ -10,7 +10,7 @@ function MyReservations({token}) {
     useEffect(() => {
       const fetchReservations = async () => {
         if (!window.sessionStorage.getItem("auth_token")) {
-          alert('You need to log in to view your reservations.');
+          alert('Morate se ulogovati kako bi ste videli rezervacije.');
           return;
         }
   
@@ -24,7 +24,7 @@ function MyReservations({token}) {
           setReservations(response.data); 
         } catch (error) {
           console.error('Error fetching reservations:', error.response || error.message || error);
-          alert('Failed to fetch reservations. Please try again.');
+          alert('Greška prilikom učitavanja.');
         }finally {
           setIsLoading(false); 
         }

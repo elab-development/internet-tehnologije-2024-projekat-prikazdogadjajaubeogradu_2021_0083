@@ -12,7 +12,7 @@ function AdminDashboard() {
   const [isLoadingReservations, setIsLoadingReservations] = useState(false);
 
     const handleDelete = (deletedUser) => {
-      const confirmDelete = window.confirm(`Are you sure you want to delete the user ${deletedUser.name}?`);
+      const confirmDelete = window.confirm(`Da li ste sigurni da želite da obrišete korisnika ${deletedUser.name}?`);
     
       if (!confirmDelete) {
         return; 
@@ -93,7 +93,7 @@ function AdminDashboard() {
         setFilteredReservations(userReservations);
       } catch (error) {
         console.error("Error fetching reservations:", error.response || error);
-        alert("Failed to fetch reservations. Please try again.");
+        alert("Greška prilikom učitavanja.");
       } finally {
         setIsLoadingReservations(false);
       }
