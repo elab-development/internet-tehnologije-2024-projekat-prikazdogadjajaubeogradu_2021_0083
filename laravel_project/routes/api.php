@@ -47,4 +47,13 @@ Route::resource('events',EventController::class);
 Route::get('/events/{id}',[EventController::class,'show']);
 Route::get('/filter',[EventController::class,'filterAndPaginate']);
 
+Route::post('/route', function (Request $request) {
+    $apiKey = 'eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6IjY3NDA5NzQ4N2E2YzQ3OWI4NDNlODgxZjA1NTZlZDY3IiwiaCI6Im11cm11cjY0In0=';
 
+    $response = Http::withHeaders([
+        'Authorization' => 'Bearer ' . $apiKey,
+        'Content-Type' => 'application/json',
+    ])->post('https://api.openrouteservice.org/v2/directions/foot-walking', $request->all());
+
+    return $response->json();
+});

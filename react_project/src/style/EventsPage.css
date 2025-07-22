@@ -8,6 +8,7 @@
   justify-content: space-between;
   align-items: center;
 }
+
 .event-btn i{
   color:white;
 }
@@ -99,6 +100,34 @@
   gap:0.5rem;
   display: flex;
 }
+.flex-res{
+  align-items: center;
+  gap:0.5rem;
+  display: flex;
+}
+
+.route-info{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.route-info p{
+  margin: 0;
+}
+
+.weather-info{
+  margin-top: 1rem;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.weather-info p{
+  margin: 0;
+}
 .card-body div{
   height:30%;
   margin-bottom:1rem;
@@ -109,6 +138,7 @@
 }
 .card-title{
   font-weight: bold;
+  font-size: 1.55rem;
 }
 .navbar-toggler-icon{
   color: white;
@@ -138,9 +168,10 @@
  color: white;
 }
 .btn:focus{
-  background-color: #a41b1b;
-  border-color: #a41b1b;
+  background-color: #98999B;
+  border-color: #98999B;
  color: white;
+ box-shadow: none;
 }
 
 .pagination{
@@ -177,10 +208,10 @@
   background-color: #D8515D;
   border-color:#D8515D ;
 }
-.pagionation-buttons button:focus{
+/* .pagionation-buttons button:focus{
   background-color: #D8515D;
   border-color:#D8515D ;
-}
+} */
 .filter-section-events{
   display: flex;
   flex-direction:row;
@@ -201,9 +232,7 @@
 .card{
   width:80%;
 }
-.navbar-toggler{
-  
-}
+
 .hide{
   display: none;  
 }

@@ -8,6 +8,7 @@ import EventsPage from './components/EventsPage';
 import MyReservations from './components/MyReservations';
 import AdminDashboard  from './components/AdminDashboard';
 import ProtectedRoute from './components/ProtectedRoute';
+
 function App() {
   const [token,setToken]=useState();
   function addToken(auth_token){

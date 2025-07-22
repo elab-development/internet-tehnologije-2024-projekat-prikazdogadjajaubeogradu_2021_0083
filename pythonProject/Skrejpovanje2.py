@@ -2,10 +2,10 @@ from selenium import webdriver
 from bs4 import BeautifulSoup
 import requests
 import pymysql
-
+ 
 driver = webdriver.Chrome()
-driver.get('https://www.ticketline.rs/listeventsbycat/?cat=all/')
-
+driver.get('https://www.ticketline.rs/svi-dogadjaji')
+ 
 conn = pymysql.connect(
     host="localhost",
     user="root",
@@ -14,24 +14,30 @@ conn = pymysql.connect(
 )
 print("Connection successful!")
 cursor = conn.cursor()
-
+ 
 html_text = driver.page_source
 driver.quit()
-
+ 
 soup = BeautifulSoup(html_text, 'lxml')
-events = soup.findAll('div', class_='main')
-for event in events:
-    title=event.find('h4').text.strip()
-    location=event.find('h5').text.strip()
-    h3_tag=event.find('span')
-    if h3_tag is not None:
-        date = h3_tag.text.strip()
+soup = BeautifulSoup(html_text, 'lxml')
+cards = soup.find_all('section', class_='horizontal-card card__animation-container aspect-[200/200]')
+print(f"{len(cards)} događaja pronađeno.")
+ 
+for card in cards:
+    try:
+        date_tag = card.find('p')
+        date = date_tag.text.strip() if date_tag else None
+ 
+        title = card.find('h4').text.strip()
+ 
+        all_p = card.find_all('p')
+        location = all_p[1].text.strip() if len(all_p) > 1 else None
+ 
         cursor.execute('''
             INSERT INTO events (title, location, date) VALUES (%s, %s, %s)
-        ''', (title, location, date))
-        print(title)
-        print(location)
-        print(date)
-        print()
+        ''',(title, location, date))
+    except Exception as e:
+        print("Greška pri parsiranju jednog događaja:", e)
+ 
 conn.commit()
 conn.close()
