@@ -1,0 +1,107 @@
+.ReactModal__Overlay {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  z-index: 1000 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem; /* za prostor sa strane na manjim ekranima */
+  box-sizing: border-box;
+  overflow-y: auto;
+  min-height: 100vh;
+}
+
+.ReactModal__Content {
+  background-color: #f5f5f7; /* svetlo siva pozadina */
+  color: #333;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  gap:1rem;
+  width: 100%;
+  max-width: 480px;
+  min-width: 280px;
+  padding: 1.5rem 2rem;
+
+  box-sizing: border-box;
+  outline: none;
+}
+
+.ReservationModal h2 {
+  margin-top: 0;
+  font-weight: 700;
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
+  color: #444;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.ReservationModal p {
+  font-size: clamp(1rem, 3vw, 1.1rem);
+  color: #555;
+  text-align: center;
+}
+
+.ReservationModal .modal-buttons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+  background-color: #444 !important;  
+  color: white !important;            
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+
+
+.leaflet-control-zoom-in:hover,
+.leaflet-control-zoom-out:hover {
+  background-color: #666 !important;
+  color: #eee !important;
+}
+
+.leaflet-control-attribution {
+  color: #333 !important; /* tamno-siva ili neka vidljiva boja */
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.7); /* blago providna bela pozadina */
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Stil za LayersControl panel */
+.leaflet-control-layers {
+  background: rgba(255, 255, 255, 0.9); /* svetla pozadina za kontrast */
+  color: #333 !important;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* Naslovi u LayersControl */
+.leaflet-control-layers-toggle {
+  background-color: #444; /* tvoja tamna pozadina ako treba */
+  border: none;
+  color: white;
+}
+
+/* Checkbox label u LayersControl */
+.leaflet-control-layers label {
+  color: #222;
+}
+
+/* Ako LayersControl sadrži checkboxes, ovo može pomoći */
+.leaflet-control-layers-selector {
+  accent-color: #a41b1b; /* tvoja boja za cekboks */
+}
+
+.leaflet-control-layers span {
+  color: #293241 !important; /* tvoja tamna boja teksta */
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+

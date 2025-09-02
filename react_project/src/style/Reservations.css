@@ -1,0 +1,102 @@
+.reservations-wrapper{
+  margin:5rem 2rem 2rem 2rem;
+  padding:2.5rem;
+    border-radius: 2rem;
+  background-color: #ffffff;
+  box-shadow: 2px 2px 4px 6px rgba(0, 0, 0, 0.2);
+
+}
+
+.reservations-wrapper button{
+  margin-bottom: 1.5rem;
+}
+
+.user-delete{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap:1rem;
+  border-radius: 1rem;
+  background-color: rgb(180, 86, 86);
+  color:white;
+  padding:0.5rem 2rem;
+}
+.user-delete:hover{
+  background-color: rgb(140, 59, 59);
+
+}
+.user-delete i{
+  color:white;
+}
+.user-download{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap:1rem;
+  border-radius: 1rem;
+  background-color: rgb(54, 77, 146);
+  border-color:rgb(54, 77, 146);
+  color:white;
+  padding:0.5rem 2rem;
+}
+.user-download:hover{
+  background-color: rgb(33, 53, 114);
+  border-color:rgb(54, 77, 146);
+}
+.user-download:active{
+  background-color: rgb(33, 53, 114);
+  border-color:rgb(54, 77, 146);
+}
+.user-download:focus{
+  background-color: rgb(33, 53, 114);
+  border-color:rgb(54, 77, 146);
+}
+.user-download i{
+color:white;
+}
+span{
+  color:white;
+}
+
+
+
+@media screen and (max-width: 800px){
+  .center-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .reservations-wrapper{
+    width: 98%;
+    height: auto;
+    padding:0.2rem;
+    margin:0;
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .reservations-wrapper button{
+    width: 60%;
+  }
+  .min{
+    align-items: center;
+    justify-content: center;
+    padding:0.2rem 0.7rem;
+    font-size: 1rem;
+
+  }
+  #td{
+    padding: 0.2rem;
+  }
+  #th{
+    font-size: 1rem;
+    padding:0.2rem;
+  }
+ 
+  span{
+    display: none;
+  }
+}
